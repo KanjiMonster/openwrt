@@ -1,1 +1,4 @@
 * -text
+
+# patch context may contain space before tab or trailing whitespace
+*.patch		whitespace=-space-before-tab,-trailing-space
