@@ -113,9 +113,6 @@
 
 &ethernet {
 	status = "okay";
-
-	nvmem-cells = <&macaddr_cfe_6a0>;
-	nvmem-cell-names = "mac-address";
 };
 
 &lsspi {
@@ -134,26 +131,41 @@
 			port@0 {
 				reg = <0>;
 				label = "wan";
+
+				nvmem-cells = <&macaddr_cfe_6a0 0>;
+				nvmem-cell-names = "mac-address";
 			};
 
 			port@1 {
 				reg = <1>;
 				label = "lan4";
+
+				nvmem-cells = <&macaddr_cfe_6a0 4>;
+				nvmem-cell-names = "mac-address";
 			};
 
 			port@2 {
 				reg = <2>;
 				label = "lan3";
+
+				nvmem-cells = <&macaddr_cfe_6a0 3>;
+				nvmem-cell-names = "mac-address";
 			};
 
 			port@3 {
 				reg = <3>;
 				label = "lan2";
+
+				nvmem-cells = <&macaddr_cfe_6a0 2>;
+				nvmem-cell-names = "mac-address";
 			};
 
 			port@4 {
 				reg = <4>;
 				label = "lan1";
+
+				nvmem-cells = <&macaddr_cfe_6a0 1>;
+				nvmem-cell-names = "mac-address";
 			};
 
 			port@8 {
@@ -222,7 +234,9 @@
 				#size-cells = <1>;
 
 				macaddr_cfe_6a0: macaddr@6a0 {
+					compatible = "mac-base";
 					reg = <0x6a0 0x6>;
+					#nvmem-cell-cells = <1>;
 				};
 			};
 		};
